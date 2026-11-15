@@ -1,0 +1,14 @@
+# Virtual environment (NEVER commit, very heavy and local)
+venv/
+
+# Environment variables (Contains potential secrets/URLs)
+.env
+
+# Python and Pytest cache files
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Generated reports and evidence
+report.html
+videos/

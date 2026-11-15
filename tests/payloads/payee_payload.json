@@ -1,0 +1,11 @@
+{
+    "name": "testName",
+    "address": {
+        "street": "string",
+        "city": "string",
+        "state": "string",
+        "zipCode": "string"
+    },
+    "phoneNumber": "string",
+    "accountNumber": 14121
+}

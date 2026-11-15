@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "required": ["payeeName", "amount", "accountId"],
+    "properties": {
+        "payeeName": {"type": "string"},
+        "amount": {"type": "number"},
+        "accountId": {"type": "integer"}
+    }        
+}
