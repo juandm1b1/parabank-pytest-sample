@@ -12,3 +12,6 @@ __pycache__/
 # Generated reports and evidence
 report.html
 videos/
+
+# VS Code settings
+.vscode/
