@@ -11,10 +11,7 @@ def test_post_billpay(api_client, load_json, source_account_id, amount_to_pay):
     #1. Request to ParaBank billpay endpoint
     url = f"{api_client.base_url}/billpay"
         
-    params = {
-        "accountId": source_account_id,
-        "amount": amount_to_pay,
-    }
+    params = {"accountId": source_account_id, "amount": amount_to_pay}
 
     # Payee:
     body = load_json("payloads/payee_payload.json")    

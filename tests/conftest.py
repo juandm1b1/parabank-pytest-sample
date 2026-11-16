@@ -12,7 +12,7 @@ load_dotenv()
 
 @pytest.fixture(scope="session")
 def api_client():
-    base_url = os.getenv("API_BASE_URL")
+    base_url = os.getenv("API_BASE_URL", "https://parabank.parasoft.com/parabank/services/bank")
     session = requests.Session()
     session.headers.update({"Accept": "application/json"})
 
