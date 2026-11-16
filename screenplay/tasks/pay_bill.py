@@ -5,18 +5,24 @@ from screenplay.ui.bill_payment_service_page import BillPaymentServicePage
 
 
 class PayBill:
-    def __init__(self):
-        self.payee_name = "Tester"
-        self.address = "dfcvghjkl"
-        self.city= "sdfghj"
-        self.state = "dfghjss"
-        self.zipcode = "33487"
-        self.phone_number = "333999494"
-        self.account_number = "22334455"
-        self.amount = "150.25"
-        self.from_account = "19560"
+    def __init__(self, payee_name: str, amount: str, from_account: str, fake_data: dict):
+        self.payee_name = payee_name
+        self.amount = amount
+        self.from_account = from_account
+        self.address = fake_data["address"]
+        self.city = fake_data["city"]
+        self.state = fake_data["state"]
+        self.zipcode = fake_data["zipcode"]
+        self.phone_number = fake_data["phone_number"]
+        self.account_number = fake_data["account_number"]        
 
+    
+    @staticmethod
+    def with_details(payee_name: str, amount: str, from_account : str, fake_data: dict) -> "PayBill":
+        """Factory method for creating the Task with the payment details."""
+        return PayBill(payee_name, amount, from_account, fake_data)
         
+    
     def perform_as(self, actor : Actor) -> None:
         actor.attempts_to(
             Click.on_the(AccountServicesPage.BILL_PAY_LINK),

@@ -5,5 +5,5 @@ Feature: Bill Payment
 
   Scenario: Successful bill payment
     Given the customer has logged into their ParaBank account
-    When they register a payment for the "Electricity" bill of 150 USD
+    When they register a payment for the requested bill
     Then they should see a successful payment confirmation

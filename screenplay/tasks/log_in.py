@@ -9,6 +9,11 @@ class LogIn:
         self.username = username
         self.password = password
 
+    @staticmethod
+    def with_credentials(username : str, password : str) -> "LogIn":
+        """Factory method for creating the Task with the provided credentials."""
+        return LogIn(username, password)   
+
     def perform_as(self, actor: Actor) -> None:
         """The actor attempts to log in using their credentials."""
         actor.attempts_to(
