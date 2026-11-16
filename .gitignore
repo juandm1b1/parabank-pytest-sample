@@ -8,10 +8,17 @@ venv/
 __pycache__/
 .pytest_cache/
 *.pyc
+*.py[cod]
 
 # Generated reports and evidence
 report.html
-videos/
+allure-results/
+allure-report/
 
-# VS Code settings
+# Playwright artifacts (videos, traces)
+videos/
+trace.zip
+
+# IDE's settings
 .vscode/
+.idea/
