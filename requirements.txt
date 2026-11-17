@@ -1,7 +1,7 @@
 pytest==8.3.5
 pytest-bdd==8.1.0
 pytest-html==4.1.1
-requests==2.32.3
+httpx==0.28.1
 jsonschema==4.23.0
 screenpy==4.2.5
 screenpy-playwright==0.0.7
