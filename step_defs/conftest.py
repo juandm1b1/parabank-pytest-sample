@@ -25,7 +25,7 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture
 def actor(request: pytest.FixtureRequest):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=500)
+        browser = p.chromium.launch(headless=True, slow_mo=10)
         context = browser.new_context(record_video_dir="videos/")
         the_actor = Actor.named("Payer").who_can(BrowseTheWebSynchronously.using(None, context))
         yield the_actor
@@ -37,13 +37,13 @@ def actor(request: pytest.FixtureRequest):
             screenshot_bytes = page.screenshot()
             allure.attach(
                 screenshot_bytes,
-                name="Final_Screenshot",  # "Screenshot_on_Failure",
+                name="Final_Screenshot",
                 attachment_type=allure.attachment_type.PNG
             )
             # Attach HTML
             allure.attach(
                 page.content(),
-                name="Final_Page_HTML",  # "Page_HTML_on_Failure",
+                name="Final_Page_HTML",
                 attachment_type=allure.attachment_type.HTML
             )
         except Exception as e:

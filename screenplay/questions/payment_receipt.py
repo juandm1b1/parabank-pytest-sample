@@ -1,3 +1,4 @@
+from playwright.sync_api import expect
 from screenpy import Actor
 from screenpy_playwright.questions import Text
 from screenplay.ui.bill_payment_confirmation_page import BillPaymentConfirmationPage
@@ -24,6 +25,10 @@ class ThePaymentReceipt():
     
 
     def answered_by(self, the_actor: Actor) -> bool:
+        # Get Playwright Locator and wait until it has text
+        amount_locator = BillPaymentConfirmationPage.CONFIRMATION_AMOUNT.found_by(the_actor)
+        expect(amount_locator).not_to_have_text("", timeout=5000)
+        
         # Get the actual values from the confirmation page
         actual_payee = Text.of_the(BillPaymentConfirmationPage.CONFIRMATION_PAYEE).answered_by(the_actor)
         actual_amount_raw = Text.of_the(BillPaymentConfirmationPage.CONFIRMATION_AMOUNT).answered_by(the_actor)

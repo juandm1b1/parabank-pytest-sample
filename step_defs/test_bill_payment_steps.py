@@ -16,8 +16,8 @@ from screenplay.tasks.pay_bill import PayBill
     "payee_name, amount, from_account",
     [
         ("City Power & Light", 150.00, "12900"),
-        ("Water Works Inc", 45.50, "17340"),
-        ("Internet Provider", 89.99, "17340"),
+        ("Water Works Inc", 45.50, "12900"),
+        ("Internet Provider", 89.99, "12900"),
     ],
 )
 @scenario('../features/bill_payment.feature', 'Successful bill payment')
