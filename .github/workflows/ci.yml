@@ -1,0 +1,58 @@
+name: ParaBank CI - Docker & Allure
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows manual execution from the Actions tab
+
+permissions:
+  contents: write # Required for publishing on GitHub Pages
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t parabank-automation .
+
+      - name: Run tests inside Docker
+        run: docker run --name test-container parabank-automation
+        continue-on-error: true # Prevents the pipeline from stopping if a test fails, ensuring that the report is always generated.
+
+      - name: Copy Allure results from container to host
+        run: docker cp test-container:/app/allure-results ./allure-results
+
+      - name: Clean up container
+        run: docker rm test-container
+
+      - name: Upload Allure results as Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 7
+
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jre-headless
+          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.tgz
+          tar -zxvf allure-2.30.0.tgz -C /opt/
+          sudo ln -s /opt/allure-2.30.0/bin/allure /usr/bin/allure
+          allure generate allure-results --clean -o allure-report
+
+      - name: Publish Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report
