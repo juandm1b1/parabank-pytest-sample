@@ -1,0 +1,13 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"As a ParaBank customer
+I want to pay my bills online
+So that I can manage my expenses and pay my providers","1796","Successful bill payment","","Wed Nov 18 01:21:53 UTC 2026","passed","Wed Nov 18 01:21:55 UTC 2026","","","",""
+"","266","test_billpay_reduces_account_balance[16119-9.0]","tests.sit","Wed Nov 18 01:21:48 UTC 2026","passed","Wed Nov 18 01:21:48 UTC 2026","","test_billpay_flow","",""
+"","84","test_post_billpay[16119-100]","tests.api","Wed Nov 18 01:21:48 UTC 2026","passed","Wed Nov 18 01:21:48 UTC 2026","","test_billpay_api","",""
+"As a ParaBank customer
+I want to pay my bills online
+So that I can manage my expenses and pay my providers","1809","Successful bill payment","","Wed Nov 18 01:21:51 UTC 2026","passed","Wed Nov 18 01:21:53 UTC 2026","","","",""
+"","581","test_get_account_details[12212]","tests.api","Wed Nov 18 01:21:47 UTC 2026","passed","Wed Nov 18 01:21:48 UTC 2026","","test_accounts_api","",""
+"As a ParaBank customer
+I want to pay my bills online
+So that I can manage my expenses and pay my providers","1911","Successful bill payment","","Wed Nov 18 01:21:49 UTC 2026","passed","Wed Nov 18 01:21:51 UTC 2026","","","",""

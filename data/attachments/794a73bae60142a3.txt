@@ -1,0 +1,24 @@
+
+ Account validated: CHECKING with balance -2600.0
+
+ Account validated: CHECKING with balance 310.45
+
+ Account validated: CHECKING with balance 100.0
+
+ Account validated: SAVINGS with balance -100.0
+
+ Account validated: CHECKING with balance 100.0
+
+ Account validated: CHECKING with balance -285.49
+
+ Account validated: CHECKING with balance 100.0
+
+ Account validated: CHECKING with balance 1100.0
+
+ Account validated: CHECKING with balance 100.0
+
+ Account validated: SAVINGS with balance 1231.1
+
+ Account validated: CHECKING with balance 1351.12
+
+ 11 accounts validated successfully.

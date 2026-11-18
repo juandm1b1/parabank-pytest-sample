@@ -1,0 +1,2 @@
+
+ SIT 'Verify that a bill payment reduces the source account balance' Passed! Initial Balance: -109.0, Amount Paid: 9.0, Final Balance: -118.0
